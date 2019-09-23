@@ -19,9 +19,10 @@ class InteractiveRecord
    column_names.compact
   end
 
-  def initalize(objects={})
-    objects.each do |k, v|
+  def initalize(attributes={})
+    attributes.each do |k, v|
       self.send("#{k}=", v)
     end
   end
+
 end
