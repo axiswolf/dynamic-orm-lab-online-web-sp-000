@@ -6,7 +6,7 @@ class InteractiveRecord
     self.to_s.downcase.pluralize
   end
 
-  def column_names
+  def self.column_names
     DB[:conn].results_as_hash = true
 
    table_columns = DB[:conn].execute("PRAGMA table_info(#{table_name})")
@@ -19,10 +19,15 @@ class InteractiveRecord
    column_names.compact
   end
 
-  def initalize(attributes={})
+  def initialize(attributes={})
     attributes.each do |k, v|
       self.send("#{k}=", v)
     end
   end
+
+  def attr_accessors
+
+  end
+
 
 end
