@@ -3,7 +3,7 @@ require 'active_support/inflector'
 
 class InteractiveRecord
   def self.table_name
-    self.lowercase
+    self.to_s.downcase.pluralize
   end
 
   def column_names
